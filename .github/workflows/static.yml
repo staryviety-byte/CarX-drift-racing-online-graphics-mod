@@ -1,0 +1,136 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CarX Drift Graphics Preset</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    header {
+      background: #111;
+      padding: 30px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #fff;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #141414;
+      border-radius: 10px;
+      border: 1px solid #222;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    h2 {
+      color: #fff;
+      border-left: 4px solid #bb00ff;
+      padding-left: 10px;
+    }
+    a.download-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: #bb00ff;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+    a.download-btn:hover {
+      background: #d94cff;
+      transform: translateY(-2px);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CarX Drift Graphics Preset</h1>
+    <p>Enhanced visuals for CarX Drift Racing Online</p>
+  </header>
+
+  <div class="container">
+    <h2>About</h2>
+    <p>
+      Download my custom graphics presets for <strong>CarX Drift Racing Online</strong>.
+      These presets improve lighting, contrast, and overall visual quality.
+    </p>
+
+    <h2>Download</h2>
+    <p>Get the latest version here:</p>
+    <a class="download-btn" href="https://www.patreon.com/posts/car-x-drift-2-145210230" target="_blank">Download on Patreon</a>
+
+    <h2>Installation</h2>
+    <p>Place the downloaded preset files in:</p>
+    <pre>Steam > steamapps > common > CarX Drift Racing Online > kino > mods > KN_Base > graphics</pre>
+
+    <p>In-game, press <strong>F4</strong> to open KINO, go to the Graphics tab, click <em>Load Preset</em>, and choose your preset.</p>
+  </div>
+
+  <footer>
+    © 2025 CarX Drift Graphics Presets — Created by Stanislaw Bialek
+  </footer>
+</body>
+</html>
+
+
